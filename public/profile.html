@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>Profile Creation</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='scripts.js' defer></script>
+</head>
+<button class="back-button" onclick="goBack()">Go Back</button>
+<body>
+    <header>
+        <h1>Profile Creation<img src="android-chrome-192x192.png" class="header-image"/></h1>
+    </header>
+    <nav>
+        <a href="welcome.html">Welcome</a> 
+        <a href="profile.html">Profile Creation</a>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="workout.html">Workout</a> 
+    </nav>
+    <main>
+        <section>
+            <h2>Create Your Profile</h2>
+            <p>
+                Welcome to the Profile Creation page! Here, you can enter your personal details and preferences to customize your fitness journey. 
+                Adding and specifying your goals will help us tailor the best workout plan for you. Please take a few minutes to 
+                fill out the form below, and you will be on your way to a personalized fitness experience!
+
+                NOTE: By submitting your personal information, you give us the right to save it in our database for future use. Your data will not be
+                shared and will only be used for future reference for workouts. 
+            </p>
+            <form id="profile-form" action="/submit-profile" method="POST">
+
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <!-- First Name -->
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first-name" required autofocus>
+                    
+                    <!-- Last Name -->
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last-name" required>
+
+                    <!-- Age -->
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="0" required>
+                    
+                    <!-- Weight -->
+                    <label for="weight">Weight (lb):</label>
+                    <input type="number" id="weight" name="weight" min="0" required>
+                    
+                    <!-- Height -->
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height" min="0" required>
+                    
+                    <!-- Gender -->
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <!-- Fitness Goal -->
+                    <label for="goal">Fitness Goal:</label>
+                    <input type="text" id="goal" name="goal" placeholder="e.g., Weight Loss, Muscle Gain">
+
+                    <!-- Workout Preferences -->
+                    <fieldset>
+                        <legend>Workout Preferences:</legend>
+                        <label>
+                            <input type="checkbox" name="preferences" value="cardio"> Cardio
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferences" value="powerlifting"> Powerlifting
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferences" value="flexibility"> Flexibility
+                        </label>
+                        <label>
+                            <input type="checkbox" name="preferences" value="weightlifting"> Weightlifting
+                        </label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>How many days do you want to work out per week?</legend>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="monday"> Monday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="tuesday"> Tuesday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="wednesday"> Wednesday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="thursday"> Thursday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="friday"> Friday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="saturday"> Saturday
+                        </label>
+                        <label>
+                            <input type="checkbox" name="workout-days" value="sunday"> Sunday
+                        </label>
+                    </fieldset>
+
+                </fieldset>
+
+                <button type="submit">Save</button>
+                <button type="reset">Cancel</button>
+            </form>
+        </section>
+    </main>
+    <footer> 
+        <p> &copy; 2024 Miguel Songco </p>
+    </footer>
+    <script>
+        function goBack() {
+                window.history.back();
+            }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>

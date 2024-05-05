@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, noarchive, nofollow">
+    <title>Miguel Songco</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">Go Back</button>
+
+    <header>
+        <h1>
+            Miguel Songco 
+            <img src="android-chrome-192x192.png" class="header-image" alt="Logo">
+        </h1>
+    </header>
+
+    <nav>
+        <a href="welcome.html">Welcome</a>
+        <a href="profile.html">Profile Creation</a>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="workout.html">Workout</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome, <span id="first-name"></span>!</h2>
+            <p>Last Name: <span id="last-name"></span></p>
+            <p>Age: <span id="age"></span></p>
+            <p>Weight: <span id="weight"></span> kg</p>
+            <p>Height: <span id="height"></span> cm</p>
+            <p>Gender: <span id="gender"></span></p>
+            <p>Goal: <span id="goal"></span></p>
+            <p>Workout Preferences: <span id="preferences"></span></p>
+            <p>Days per Week: <span id="workout-days"></span></p>
+        </section>
+
+        <section>
+            <p>Workouts:</p>
+            <form id="workout-form">
+                <fieldset>
+                    <legend>Workout Preferences</legend>
+                    <p>Workout Preferences: <span id="preferences"></span></p>
+                </fieldset>
+        </section>
+        <section>
+            Looking to change any personal information? Please click on the 'Edit Profile' to change any information you inputted!
+            <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Miguel Songco</p>
+    </footer>
+
+    <script>
+        // Function to update the HTML elements with data
+        function updateDashboardData(data) {
+            document.getElementById('first-name').innerText = data['first-name'];
+            document.getElementById('last-name').innerText = data['last-name'];
+            document.getElementById('age').innerText = data.age;
+            document.getElementById('weight').innerText = data.weight;
+            document.getElementById('height').innerText = data.height;
+            document.getElementById('gender').innerText = data.gender;
+            document.getElementById('goal').innerText = data.goal;
+            document.getElementById('preferences').innerText = data.workoutPreferences.join(', ');
+            document.getElementById('workout-days').innerText = data.workoutDays.join(', ');
+        }
+
+        // Function to display an error message
+        function showError(message) {
+            document.getElementById('dashboard-message').innerText = message;
+        }
+
+        // Function to load user data into the dashboard
+        function loadUserData() {
+            fetch('/api/user-data')
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        updateDashboardData(data);
+                    } else {
+                        showError("No data found.");
+                    }
+                })
+                .catch(() => {
+                    showError("Error loading data.");
+                });
+        }
+
+        // Call loadUserData when the page loads
+        window.onload = loadUserData;
+
+        // Function to navigate back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>

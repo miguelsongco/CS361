@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profile Saved</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='scripts.js' defer></script>
+</head>
+<button class="back-button" onclick="goBack()">Go Back</button>
+
+<body>
+    <header>
+        <h1>Profile Creation<img src="android-chrome-192x192.png" class="header-image"/></h1>
+    </header>
+    <nav>
+        <a href="welcome.html">Welcome</a> 
+        <a href="profile.html">Profile Creation</a>
+        <a href="Dashboard.html">Dashboard</a>
+        <a href="workout.html">Workout</a> 
+    </nav>
+    <main>
+        <section>
+                <h2>Thank you for creating your profile!</h2>
+                <p id="confirmation-message"></p>
+                <p>First Name: <span id="first-name"></span></p>
+                <p>Last Name: <span id="last-name"></span></p>
+                <p>Age: <span id="age"></span></p>
+                <p>Weight: <span id="weight"></span> kg</p>
+                <p>Height: <span id="height"></span> cm</p>
+                <p>Gender: <span id="gender"></span></p>
+                <p>Goal: <span id="goal"></span></p>
+                <p>Workout Preferences: <span id="preferences"></span></p>
+                <p>Days per Week: <span id="workout-days"></span></p>
+        </section>
+        <section>
+            Made a mistake? No worries! Please click this button to revise any information you given us. This will overwrite
+            old data and reinput the new.
+            <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
+        </section>
+    </main>
+    <footer> 
+        <p> &copy; 2024 Miguel Songco </p>
+    </footer>
+
+    <script>
+        // Function to update the HTML elements with data
+        function updateProfileData(data) {
+            document.getElementById('first-name').innerText = data['first-name'];
+            document.getElementById('last-name').innerText = data['last-name'];
+            document.getElementById('age').innerText = data.age;
+            document.getElementById('weight').innerText = data.weight;
+            document.getElementById('height').innerText = data.height;
+            document.getElementById('gender').innerText = data.gender;
+            document.getElementById('goal').innerText = data.goal;
+            document.getElementById('preferences').innerText = data.workoutPreferences.join(', ');
+            document.getElementById('workout-days').innerText = data.workoutDays.join(', ');
+        }
+
+// Function to display an error message
+    function showError(message) {
+        const errorElement = document.getElementById('confirmation-message');
+        if (errorElement) {
+            errorElement.innerText = message;
+        } else {
+             console.error(message); // Fallback to console if no HTML element found
+    }
+}
+    // Function to fetch user data and handle errors
+    function fetchUserData(name) {
+            const url = `/api/user-data?name=${encodeURIComponent(name)}`;
+
+            fetch(url) // Fixing the typo 'etch' to 'fetch'
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Update the profile data using the fetched data
+                    updateProfileData(data);
+                })
+                .catch(error => {
+                    showError("Failed to load user data: " + error.message);
+                });
+        }
+
+        // This should run after the HTML content has been loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get("name");
+
+            if (name) {
+                fetchUserData(name);
+            } else {
+                showError("No name provided.");
+            }
+        });
+
+        // Function to navigate back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

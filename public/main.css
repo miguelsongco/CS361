@@ -1,0 +1,351 @@
+/*  ===== MOBILE styles (reside at the top and are inherited by all devices) ===== */
+/*  ===== See tablet, desktop, and print @media queries at the bottom. */
+
+
+/*   ----- Imports  -----  */
+  /* @import 'node_modules/modern-normalize/modern-normalize.css';  npm install modern-normalize  Resets elements for browser consistency.  https://www.npmjs.com/package/modern-normalize */         
+  /* @import "component1.css";   Component-specific stylesheets, if any.   */
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Oswald:wght@300;600;700&display=swap');
+
+
+
+/*   ----- Variables  -----  */
+:root { 
+  --dark-shade: rgb(255, 255, 255); /* Replace with your dark color RGBA value */
+  --medium-shade: rgb(12, 102, 198); /* Replace with your medium color RGBA value */
+  --light-shade: rgba(41, 53, 85, 0.826); /* Replace with your light color RGBA value */
+  --accent-color: rgba(241, 144, 53, 0.584); /* Replace with your accent color RGBA value */
+  --transparent-color: rgba(75, 126, 110, 0.691);/* Replace with your color RGBA value that includes transparency */
+  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Oswald', sans-serif;
+}
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
+
+body {      
+  color: var(--dark-shade);
+  font-family: 'Oswald', serif;
+  background-attachment: fixed;
+  background-image:url('images/wallpaper.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 990px;
+  max-height:1.5;
+}
+
+/*  ----- Page layout blocks -----  */
+header, footer {
+  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-inline: 10px;
+  padding: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  margin-bottom: 0;
+  padding: 1%;
+}
+
+.header-image {
+  width: 100%; /* Makes the image responsive */
+  max-width: 100px; /* Maximum width of the image */
+  height: auto; /* Keeps the aspect ratio of the image */
+  display: center; /* Centers image in the container if width is less than 100% */
+  margin: 0 auto; /* Centers image horizontally */
+}
+
+main {
+  background-color: var(--accent-color);
+  margin:10px;
+  padding: 3.5%;
+}
+
+section {
+  background-color: var(--transparent-color);
+  margin:5px;
+  padding: 2.5%;
+}
+
+article {
+    border-top: 2px solid var(--dark-shade);
+    margin-top: 5%;
+}
+
+
+  #topic1 {}
+  #topic2 {}
+div {}
+aside {}
+footer {}
+
+/* ----- Anchors ----- Text links */
+a {}
+a:link {}
+a:hover {}
+a:active {}
+a:visited {}
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+
+nav {
+  text-align:center;
+  margin:0;
+  margin-top: 1%;
+  padding:0;
+}
+
+nav a {
+  background-color:var(--light-shade);
+  border:2px solid var(--dark-shade);
+  border-radius:10px 10px 0 0; 
+  color: var(--dark-shade);
+  font-size:1.1em;
+  font-weight:bold;
+  margin:0;
+  padding: 12px 25px;
+  text-decoration: none;
+  display:flex-wrap;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--dark-shade);
+  color: var(--dark-shade)
+}
+
+.local {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; /* Adjust this to place your nav items as you want them, e.g., flex-start, space-between, etc. */
+  gap: 10px; /* Adjust the space between the items */
+  background-color: var(--transparant-shade); /* Light background for the local nav */
+  padding: 15px;
+}
+
+.local a {
+  text-decoration: bold;
+  padding: 15px 30px;
+  background-color: var(--accent-color);
+  color: var(--dark-shade);
+  border-radius: 30px; 
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.local a:hover {
+  background-color: var(--dark-shade);
+  border-color: var(--dark-shade); /* Border color change on hover */
+}
+
+/*  -----  Typography  ----- */
+p {}
+br {}
+ol, ul, dl {}
+li {}
+dt {}
+dd {}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-shade);
+  text-align:center;
+  font-family:'Nanum Myeongjo', sans-serif;
+} 
+h1 {}
+h2 {font-size:28px;}
+h3 {font-size: 24px;}
+h4 {}
+h5 {}
+h6 {}
+
+abbr {}
+acronym {}
+address {}
+blockquote {}
+  q {}
+  cite {}
+em {}
+hr {}
+mark {}
+s {}
+span {}
+strong {}
+sub {}
+sup {}
+time {}
+
+/*  ----- Coding or instructional typography ----- */
+pre {}
+code {}
+kbd {}
+samp {}
+var {}
+del {} 
+ins {}
+
+/*  ----- Table ----- */
+table {}
+caption {}
+thead {}
+tbody {}
+tfoot {}
+tr {}
+  tr:nth-child(even) {}
+th {}
+td {}
+  td:nth-child(1) {}
+colgroup {}
+data {}
+datalist {}
+
+
+/*  ----- Form ----- */
+form {
+  max-width: 500px;
+  margin: 15px auto;
+  padding: 1px;
+  border-radius: 4px;
+}
+
+fieldset {
+  border: 5px solid var(--accent-color);
+  margin: 20px 0; 
+  padding: 20px;
+  width: auto;
+}
+
+input[type='checkbox'] {
+  display:flexbox;
+  width: auto; 
+  margin-right: 5px;
+}
+
+input[type='radio'] {
+  display:flexbox;
+  width: auto; 
+  margin-right: auto; 
+}
+
+legend {
+  color: var(--dark-shade);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+label {
+  display:block;
+  margin-top: 10px;
+}
+
+button {
+  margin: auto;
+  font-size: large;
+}
+input, select {
+  font-size: 17px;
+  padding: 1%;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px; 
+  margin-bottom: 10px;
+}
+
+:focus {
+  background-color: var(--dark-shade);
+
+}
+
+*:required {
+  border: 2px solid var(--light-shade);
+}
+
+input:invalid { 
+   border:3px solid red; 
+} 
+input:valid { 
+   border:2px solid green; 
+}
+
+select {}
+optgroup {}
+option {}
+output {}
+meter {}
+progress {}
+
+
+/* ----- Media ----- */
+
+figure img {
+  width:100%;
+  height: auto;
+}
+svg {}
+picture {
+}
+source {}
+iframe {}
+video {}
+audio {}
+embed {}
+object {}
+
+/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+
+.gallery, .sideBySide{
+  display: flex;
+  flex-flow: row wrap;
+  margin: 30px;
+  padding: 10px;
+}
+
+.gallery figure {
+  background-color: var(--dark-shade);
+  border-radius: 10px;
+  width: 220px;
+  margin: 1%;
+  padding:1%;
+}
+.gallery figcaption {
+  text-align: center;
+  color: var(--light-shade); /* Text color for the caption */
+  padding-top: 1% 1% 2% 1%;
+
+}
+.floatright {
+  float: right;
+  margin-left: 1%;
+}
+.floatleft {}
+.center-middle {}
+.clear {clear:both;}
+.ten {}
+.twenty {}
+.thirty {}
+.forty {}
+.fifty {}
+.sixty {}
+.seventy {}
+.eighty {}
+.radius {}
+.circle {}
+.boxshadow {}
+.tshadow {} 
+.gradient {}
+.shape {}
+
+@keyframes App-logo {}
+
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}
