@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name="robots" content="noindex,noarchive, nofollow" />
+    <meta charset="UTF-8">
     <title>Miguel Songco</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <script src="scripts.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 </head>
-<button class="back-button" onclick="goBack()">Go Back</button>
 <body>
+    <button class="back-button" onclick="goBack()">Go Back</button>
+    
     <header>
-        <h1>Miguel Songco <img src="android-chrome-192x192.png" class="header-image"/></h1>
+        <h1>Miguel Songco <img src="android-chrome-192x192.png" class="header-image" alt="Logo"></h1>
     </header>
+    
     <nav>
         <a href="welcome.html">Welcome</a> 
         <a href="profile.html">Profile Creation</a>
         <a href="Dashboard.html">Dashboard</a>
         <a href="workout.html">Workout</a> 
     </nav>
+
     <main>
         <section>
             <form id="workout-form">
@@ -39,44 +40,36 @@
 
                 <button type="submit">Generate Workout Plan</button>
             </form>
-                Looking to change any personal information or change workouts? Please click on the 'Edit Profile' to change any information you inputted!
-                <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
+            <button onclick="window.location.href='edit-profile.html'">Edit Profile</button>
         </section>
-        <section id="workout-suggestions">
-        </section>
+        
+        <section id="workout-suggestions"></section>
     </main>
-    </main>
+
     <footer>
-        <p>&copy; 2024 miguel songco</p>
+        <p>&copy; 2024 Miguel Songco</p>
     </footer>
 
-        <script>
-            // Function to load user data into the dashboard
-            function loadUserData() {
-                fetch('/api/user-data')
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data) {
-                            document.getElementById('preferences').innerText = data.workoutPreferences.join(', ');
-                            document.getElementById('workout-days').innerText = data.workoutDays.join(', ');
-                        }
-                    });
-            }
-    
-            // Call loadUserData when the page loads
-            window.onload = loadUserData;
-    
-            function goBack() {
-                window.history.back();
-            }
-        </script>
-        <script src="scripts.js"></script>
-</body>
-</html>
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+    <script>
 
+        // Function to load user data into the dashboard
+        function loadUserData() {
+            fetch('/api/user-data')
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.getElementById('preferences').innerText = data.workoutPreferences.join(', ');
+                        document.getElementById('workout-days').innerText = data.workoutDays.join(', ');
+                    }
+                });
+        }
+
+        // Call loadUserData when the page loads
+        window.onload = loadUserData;
+        // back button
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
 </html>

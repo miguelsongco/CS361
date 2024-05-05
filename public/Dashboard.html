@@ -43,7 +43,7 @@
             <form id="workout-form">
                 <fieldset>
                     <legend>Workout Preferences</legend>
-                    <p>Workout Preferences: <span id="preferences"></span></p>
+                    <section id="workout-plan"></section>
                 </fieldset>
         </section>
         <section>
@@ -91,9 +91,24 @@
                 });
         }
 
-        // Call loadUserData when the page loads
-        window.onload = loadUserData;
+        // loads userworkout plan and displays it to the user
+        function loadUserWorkoutPlan() {
+        fetch('/api/get-workout-plan?name=defaultUser') // Replace with the actual user name
+            .then(response => response.json())
+            .then(data => {
+                if (data.plan) {
+                    document.getElementById('workout-plan').innerHTML = `<h3>Your Saved Workout Plan</h3>${data.plan}`;
+            } else {
+                    document.getElementById('workout-plan').innerHTML = 'No workout plan found.';
+            }
+        });
+}
 
+        window.onload = function() {
+        loadUserData(); // Existing function to load user data
+        loadUserWorkoutPlan();
+}
+        
         // Function to navigate back to the previous page
         function goBack() {
             window.history.back();

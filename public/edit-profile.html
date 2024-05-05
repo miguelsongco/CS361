@@ -18,27 +18,6 @@
         <a href="Dashboard.html">Dashboard</a>
         <a href="workout.html">Workout</a> 
     </nav>
-    <script>
-        function loadProfileData() {
-            fetch('/api/user-data')
-                .then(response => response.json())
-                .then(data => {
-                    if (data) {
-                        document.getElementById('first-name').value = data['first-name'];
-                        document.getElementById('last-name').value = data['last-name'];
-                        document.getElementById('age').value = data.age;
-                        document.getElementById('weight').value = data.weight;
-                        document.getElementById('height').value = data.height;
-                        document.getElementById('gender').value = data.gender;
-                        document.getElementById('goal').value = data.goal;
-                        // Populate other fields as needed
-                    }
-                })
-                .catch(err => console.error('Error loading data:', err));
-        }
-
-        window.onload = loadProfileData;
-    </script>
 </head>
 <body>
     <header>
@@ -80,13 +59,13 @@
                     <input type="checkbox" name="preferences" value="cardio"> Cardio
                 </label>
                 <label>
-                    <input type="checkbox" name="preferences" value="strength"> Powerlifting
+                    <input type="checkbox" name="preferences" value="powerlifting"> Powerlifting
                 </label>
                 <label>
                     <input type="checkbox" name="preferences" value="flexibility"> Flexibility
                 </label>
                 <label>
-                    <input type="checkbox" name="preferences" value="endurance"> Weightlifting
+                    <input type="checkbox" name="preferences" value="weightlifting"> Weightlifting
                 </label>
             </fieldset>
 
@@ -120,5 +99,25 @@
             <button type="button" onclick="window.location.href='dashboard.html'">Cancel</button>
         </form>
     </main>
+    <script>
+        function loadProfileData() {
+            fetch('/api/user-data')
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.getElementById('first-name').value = data['first-name'];
+                        document.getElementById('last-name').value = data['last-name'];
+                        document.getElementById('age').value = data.age;
+                        document.getElementById('weight').value = data.weight;
+                        document.getElementById('height').value = data.height;
+                        document.getElementById('gender').value = data.gender;
+                        document.getElementById('goal').value = data.goal;
+                    }
+                })
+                .catch(err => console.error('Error loading data:', err));
+        }
+
+        window.onload = loadProfileData;
+    </script>
 </body>
 </html>
