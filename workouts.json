@@ -1,0 +1,135 @@
+{
+    "workouts": [
+        {
+            "experience_level": "Beginner",
+            "workout_type": "Full Body",
+            "exercises": [
+                {
+                    "name": "Squat",
+                    "sets": 3,
+                    "reps": "12-15"
+                },
+                {
+                    "name": "Push-ups",
+                    "sets": 3,
+                    "reps": "10-12"
+                },
+                {
+                    "name": "Sit-ups",
+                    "sets": 3,
+                    "reps": "15-20"
+                },
+                {
+                    "name": "Run",
+                    "sets": 1,
+                    "reps": "1 mile"
+                }
+            ]
+        },
+        {
+            "experience_level": "Intermediate",
+            "workout_type": "Weightlifting",
+            "exercises": [
+                {
+                    "name": "Bench Press",
+                    "sets": 4,
+                    "reps": "8-10"
+                },
+                {
+                    "name": "Deadlift",
+                    "sets": 3,
+                    "reps": "6-8"
+                },
+                {
+                    "name": "Clean and Jerk",
+                    "sets": 3,
+                    "reps": "5-7"
+                }
+            ]
+        },
+        {
+            "experience_level": "Advanced",
+            "workout_type": "Powerlifting",
+            "exercises": [
+                {
+                    "name": "Squat",
+                    "sets": 5,
+                    "reps": "3-5"
+                },
+                {
+                    "name": "Bench Press",
+                    "sets": 5,
+                    "reps": "3-5"
+                },
+                {
+                    "name": "Deadlift",
+                    "sets": 5,
+                    "reps": "1-3"
+                }
+            ]
+        },
+        {
+            "experience_level": "Beginner",
+            "workout_type": "CrossFit",
+            "exercises": [
+                {
+                    "name": "Wall Balls",
+                    "sets": 3,
+                    "reps": "15-20"
+                },
+                {
+                    "name": "Box Jumps",
+                    "sets": 3,
+                    "reps": "10-15"
+                },
+                {
+                    "name": "Kettlebell Swings",
+                    "sets": 3,
+                    "reps": "15-20"
+                }
+            ]
+        },
+        {
+            "experience_level": "Intermediate",
+            "workout_type": "CrossFit",
+            "exercises": [
+                {
+                    "name": "Pull-ups",
+                    "sets": 4,
+                    "reps": "10-12"
+                },
+                {
+                    "name": "Thrusters",
+                    "sets": 4,
+                    "reps": "8-10"
+                },
+                {
+                    "name": "Muscle Ups",
+                    "sets": 3,
+                    "reps": "5-7"
+                }
+            ]
+        },
+        {
+            "experience_level": "Advanced",
+            "workout_type": "CrossFit",
+            "exercises": [
+                {
+                    "name": "Snatch",
+                    "sets": 5,
+                    "reps": "3-5"
+                },
+                {
+                    "name": "Clean and Jerk",
+                    "sets": 5,
+                    "reps": "3-5"
+                },
+                {
+                    "name": "Handstand Push-ups",
+                    "sets": 4,
+                    "reps": "8-10"
+                }
+            ]
+        }
+    ]
+}
