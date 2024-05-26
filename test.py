@@ -1,5 +1,5 @@
 import requests
-
+# Example of how you could call the microservice
 # Microservice endpoint
 url = "http://localhost:2319/workout"
 
